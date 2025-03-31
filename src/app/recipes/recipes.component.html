@@ -1,1 +1,30 @@
-<p>recipes works!</p>
+<div>
+    <h1>Recipes</h1>
+    <div *ngIf="betoltesFolyamatban">Adatok betöltése...</div>
+    <div *ngIf="hibaUzenet" class="error">{{ hibaUzenet }}</div>
+    <table *ngIf="!betoltesFolyamatban && !hibaUzenet" border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Név</th>
+          <th>Nehezség</th>
+          <th>Értékelés</th>
+          <th>Származás</th>
+          <th>Funkciók</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let recept of receptek">
+          <td>{{ recept.id }}</td>
+          <td>{{ recept.name }}</td>
+          <td>{{ recept.difficulty }}</td>
+          <td>{{ recept.rating }}</td>
+          <td>{{ recept.cuisine }}</td>
+          <td>
+            <button (click)="megtekintes(recept.id)">Megtekintés</button>
+            <button (click)="szerkesztes(recept.id)">Szerkesztés</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

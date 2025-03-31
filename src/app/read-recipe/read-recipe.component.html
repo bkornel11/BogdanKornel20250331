@@ -1,1 +1,21 @@
-<p>read-recipe works!</p>
+<div>
+    <h1>Read Recipe</h1>
+    <form [formGroup]="recipeForm">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" />
+      </div>
+      <div>
+        <label for="prepTimeMinutes">Preparation Time (Minutes):</label>
+        <input id="prepTimeMinutes" type="number" formControlName="prepTimeMinutes" />
+      </div>
+      <div>
+        <label for="cookTimeMinutes">Cooking Time (Minutes):</label>
+        <input id="cookTimeMinutes" type="number" formControlName="cookTimeMinutes" />
+      </div>
+      <div>
+        <label for="cuisine">Cuisine:</label>
+        <input id="cuisine" formControlName="cuisine" />
+      </div>
+    </form>
+</div>

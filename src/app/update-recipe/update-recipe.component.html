@@ -1,1 +1,34 @@
-<p>update-recipe works!</p>
+<div>
+    <h1>Update Recipe</h1>
+    <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" />
+        <div *ngIf="recipeForm.get('name')?.invalid && recipeForm.get('name')?.touched">
+          Name is required.
+        </div>
+      </div>
+      <div>
+        <label for="prepTimeMinutes">Preparation Time (Minutes):</label>
+        <input id="prepTimeMinutes" type="number" formControlName="prepTimeMinutes" />
+        <div *ngIf="recipeForm.get('prepTimeMinutes')?.invalid && recipeForm.get('prepTimeMinutes')?.touched">
+          Must be at least 5 minutes.
+        </div>
+      </div>
+      <div>
+        <label for="cookTimeMinutes">Cooking Time (Minutes):</label>
+        <input id="cookTimeMinutes" type="number" formControlName="cookTimeMinutes" />
+        <div *ngIf="recipeForm.get('cookTimeMinutes')?.invalid && recipeForm.get('cookTimeMinutes')?.touched">
+          Must be at least 5 minutes.
+        </div>
+      </div>
+      <div>
+        <label for="cuisine">Cuisine:</label>
+        <input id="cuisine" formControlName="cuisine" />
+        <div *ngIf="recipeForm.get('cuisine')?.invalid && recipeForm.get('cuisine')?.touched">
+          Cuisine is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="recipeForm.invalid">Update</button>
+    </form>
+  </div>

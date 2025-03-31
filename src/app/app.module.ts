@@ -1,28 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RecipesComponent } from './recipes/recipes.component';
-import { ReadRecipeComponent } from './read-recipe/read-recipe.component';
-import { UpdateRecipeComponent } from './update-recipe/update-recipe.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RecipesComponent,
-    ReadRecipeComponent,
-    UpdateRecipeComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
